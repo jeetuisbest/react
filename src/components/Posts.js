@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Post from './Post';
 import postsArr from './postsArr';
+import Compose from './Compose';
 
 
 function PostItems(){
@@ -40,6 +41,7 @@ var postId = window.location.pathname.split('/')[2]
 
   function data(){
     let newPostItem = {
+      key: postsArr.length + 1,
       title,
       author,
       topic,
@@ -47,13 +49,14 @@ var postId = window.location.pathname.split('/')[2]
        }
 
        addPost((posts)=>{
-        // console.log(posts)
         return [...posts , newPostItem]
        })
 
     postsArr.push(newPostItem)
    
   }
+
+  console.log(postsArr)
 
   return <div>
 <div className='posts'>  
@@ -79,7 +82,7 @@ var postId = window.location.pathname.split('/')[2]
        
     </div>
 
-<div className='compose'>
+{/* <div className='compose'>
   <h1>Compose</h1>
   <div className="form-group">
     <label>Title</label>
@@ -92,7 +95,10 @@ var postId = window.location.pathname.split('/')[2]
     <input onChange={onChange} className="form-control" type="text" name="author" value={author} />
   </div>
   <Link onClick={data} className="text-link" to={`/`}> <button className="btn btn-primary" type="submit" name="button">Publish</button></Link>
-</div>
+</div> */}
+
+<Compose function1={onChange} function2={data} />
+
   </div>
   
 

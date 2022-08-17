@@ -36,7 +36,7 @@ html {
 
 .text-link{
   color: #010b14;
-  text-decoration: inherit;
+  text-decoration: none;
 }
 
 a:hover{
