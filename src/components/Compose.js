@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Header from './Header';
 // import Posts from '../components/Posts';
 
@@ -7,25 +7,25 @@ import Header from './Header';
 
 function Compose(props) {
 
-console.log("props" , props)
+  // console.log("props" , props)
 
-  return <div>
-    <Header />
-    <div className='posts'>
-      <h1>Compose</h1>
+  return (<>
+    {/* <Header /> */}
+    <div className='compose'>
+      <h1 className='darkmode-element'>Compose</h1>
       <div className="form-group">
-        <label>Title</label>
+        <label className='darkmode-element'>Title</label>
         <input onChange={props.function1} className="form-control" type="text" name="postTitle" />
-        <label>Post</label>
+        <label className='darkmode-element' >Post</label>
         <textarea onChange={props.function1} className="form-control" name="postBody" rows="5" cols="30" ></textarea>
-        <label>Topic</label>
-        <input onChange={props.function1} className="form-control" type="text" name="topic"  />
-        <label>author</label>
-        <input onChange={props.function1} className="form-control" type="text" name="author"  />
+        <label className='darkmode-element' >Topic</label>
+        <input onChange={props.function1} className="form-control" type="text" name="topic" />
+        <label className='darkmode-element'>author</label>
+        <input onChange={props.function1} className="form-control" type="text" name="author" />
       </div>
       <button onClick={props.function2} className="btn btn-primary" type="submit" name="button">Publish</button>
     </div>
-  </div>
+  </>)
 }
 
 

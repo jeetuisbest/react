@@ -1,14 +1,11 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Post from './Post';
 import postsArr from './postsArr';
 import Compose from './Compose';
 
 
 function PostItems(){
-
-var postId = window.location.pathname.split('/')[2]
 
   const [posts , addPost] = useState([postsArr])
   const [title, setTitle] = useState("")
@@ -61,7 +58,7 @@ var postId = window.location.pathname.split('/')[2]
   return <div>
 <div className='posts'>  
 
-{ !postId ? postsArr.map((postItem , index)=>{
+{/* { !postId ? postsArr.map((postItem , index)=>{
         return(<Post key={postItem.key} 
         id={postItem.key}
         title={postItem.title} 
@@ -78,7 +75,15 @@ var postId = window.location.pathname.split('/')[2]
         author={postItem.author} /> : null 
         }
         )
-        }
+        } */}
+
+        {postsArr.map((postItem , index)=>{
+        return(<Post key={postItem.key} 
+        id={postItem.key}
+        title={postItem.title} 
+        content={postItem.content.slice(0 , 400) + "...."} 
+        topic={postItem.topic}
+        author={postItem.author} />)})}
        
     </div>
 
