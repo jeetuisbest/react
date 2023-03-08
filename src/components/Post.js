@@ -18,7 +18,7 @@ function post(props) {
         <Link style={{ "textDecoration": "none" }} className="text-black hover:text-black" to={`/posts/${props.category}/${props.title.toLowerCase().replace(/[`" "~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-')}-${props.id}`}>
           <div className=" p-10 post">
             {/* <p>{props.title.toLowerCase().replace(/[`" "~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-')}</p> */}
-            <img className="rounded-3xl" src={props.img}></img>
+            <img className="rounded-3xl w-[488px] h-[350px]" src={props.img}></img>
             <div>
               <h1 className="font-serif font-bold inline-flex mx-1 text-5xl leading-tight py-3">{props.title}</h1>
               <h4 className="font-serif inline-flex font-bold mx-1 text-3xl py-3" > {props.category.toUpperCase()}</h4> <br />

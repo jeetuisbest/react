@@ -11,6 +11,7 @@ function header() {
     <ul className=" px-28 flex py-3 space-x-11 justify-end">
       <li className="text-white cursor-pointer text-3xl px-5" id="home"> <Link style={{ "textDecoration": "none" }} className="hover:text-red-600" to={`/`} > HOME </Link></li>
       <li className="text-white cursor-pointer text-3xl px-5" id="tech"> <Link style={{ "textDecoration": "none" }} className="hover:text-red-600" to={`/tech`} > TECH </Link></li>
+      <li className="text-white cursor-pointer text-3xl px-5" id="bollywood"> <Link style={{ "textDecoration": "none" }} className="hover:text-red-600" to={`/bollywood`} > BOLLYWOOD </Link></li>
       {/* <li className="text-white cursor-pointer px-5" id="about"> <Link to={`/about`} > ABOUT US </Link></li> */}
     </ul>
   </nav>

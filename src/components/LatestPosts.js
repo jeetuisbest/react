@@ -20,8 +20,9 @@ function LatestPost() {
         const loadData = async () => {
             // setUsersLoading(true);
             console.log("hello")
-            let posts = await getJsonData('http://localhost:9000/api/homepage')
-            let result = posts['latest_updates']
+            let result = await getJsonData('http://localhost:9000/api/homepage')
+            // let result = posts['latest_updates']
+            console.log("result", result)
             setPosts(result)
         };
 
@@ -68,7 +69,7 @@ function LatestPost() {
                         // author={postItem.author}
                         // img={postItem.img}
                         >
-                            <Link style={{ "textDecoration": "none" }} className="py-14" to={`/posts/${postItem.category}/${postItem.title.toLowerCase().replace(/[`" "~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-')}-${postItem.key}`}>
+                            <Link style={{ "textDecoration": "none" }} className="py-14" to={`/posts/${postItem.category}/${postItem.title.toLowerCase().replace(/[`" "~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-')}-${postItem._id}`}>
                                 <div className="flex pt-8 justify-center">
                                     <img className="h-[585px] w-[936px]" src={postItem.img}></img>
                                 </div>

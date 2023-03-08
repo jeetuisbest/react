@@ -11,7 +11,8 @@ function Home() {
         <Header />
         {/* <DarkMode /> */}
         <LatestPosts />
-        <Posts />
+        <Posts category="tech" />
+        <Posts category="bollywood" />
         <Footer />
     </div>)
 }

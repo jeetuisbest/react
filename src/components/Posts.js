@@ -6,7 +6,7 @@ import Post from './Post';
 // import Compose from './Compose';
 
 
-function PostItems() {
+function PostItems(props) {
 
   const [techPostsArr, setPosts] = useState([])
 
@@ -14,8 +14,7 @@ function PostItems() {
     // wrap your async call here
     const loadData = async () => {
       // setUsersLoading(true);
-      console.log("hello")
-      let posts = await getJsonData('http://localhost:9000/api/posts/tech')
+      let posts = await getJsonData(`http://localhost:9000/api/posts/${props.category}`)
 
       // console.log("posts", posts)
       // let result = posts['tech']
@@ -82,7 +81,7 @@ function PostItems() {
         border-left: hidden;
         border-top: hidden;
         border-right: hidden; */}
-        <li className="border-b-4 tracking-tight hover:tracking-wide border-spacing-y-1.5 text-5xl leading-relaxed py-1 border-black px-5" id="home"> TECH UPDATES </li>
+        <li className="border-b-4 tracking-tight hover:tracking-wide border-spacing-y-1.5 text-5xl leading-relaxed py-1 border-black px-5" id="home"> {props.category.toUpperCase()} UPDATES </li>
 
         {/* border: solid;
         text-decoration: none;
@@ -119,7 +118,7 @@ function PostItems() {
         {techPostsArr.map((postItem, index) => {
           if (index < 4) {
             return (<Post key={postItem.key}
-              id={postItem.key}
+              id={postItem._id}
               img={postItem.img}
               title={postItem.title}
               content={postItem.content.slice(0, 400) + "...."}

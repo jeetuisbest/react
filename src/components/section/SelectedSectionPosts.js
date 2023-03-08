@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { getJsonData } from "../../commonConfig/utils";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 // import Post from '../Post';
+import { useLocation } from "react-router-dom";
 import SectionPost from "../SectionPost"
 // import postsArr from './postsArr';
 // import Compose from './Compose';
@@ -9,8 +10,12 @@ import SectionPost from "../SectionPost"
 
 function PostItems() {
 
-    const [techPostsArr, setPosts] = useState([])
+    const [categoryPostsArr, setPosts] = useState([])
     const [title, setTitle] = useState("")
+
+    console.log(window.location.pathname.split('/')[1])
+
+    const location = useLocation();
 
     useEffect(() => {
         // wrap your async call here
@@ -19,16 +24,17 @@ function PostItems() {
             // console.log()
             let currrentTitle = window.location.pathname.split('/')[1]
 
-            currrentTitle = currrentTitle.toUpperCase()
+            let title = currrentTitle.toUpperCase()
             // console.log("hello")
-            let posts = await getJsonData('http://localhost:9000/api/posts/tech')
+            console.log(`http://localhost:9000/api/posts/${currrentTitle}`)
+            let posts = await getJsonData(`http://localhost:9000/api/posts/${currrentTitle}`)
             // let result = posts['tech']
             setPosts(posts)
-            setTitle(currrentTitle)
+            setTitle(title)
         };
 
         loadData();
-    }, []);
+    }, [location]);
 
     // const [posts, addPost] = useState([postsArr])
     // const [title, setTitle] = useState("")
@@ -79,7 +85,9 @@ function PostItems() {
     // console.log(postsArr)
     // #fffacd lemonchiffon
 
-    return <div className="border-2 border-black mr-[28%] pl-[2%] pt-[3%]">
+    // border - 2 border - black
+
+    return <div className="mr-[28%] pl-[10%] pt-[2%]">
         <h1 className="text-5xl mx-28 py-2 border-b-4 border-black text-center font-bold"> {title} NEWS</h1>
         <div className='py-4'>
             {/* { !postId ? postsArr.map((postItem , index)=>{
@@ -100,10 +108,10 @@ function PostItems() {
         }
         )
         } */}
-            {techPostsArr.map((postItem, index) => {
+            {categoryPostsArr.map((postItem, index) => {
                 {/* if (index < 4) { */ }
                 return (<SectionPost key={postItem.key}
-                    id={postItem.key}
+                    id={postItem._id}
                     img={postItem.img}
                     title={postItem.title}
                     content={postItem.content.slice(0, 400) + "...."}

@@ -18,7 +18,7 @@ function App() {
           <Route path='/' element={<Home />} exact></Route>
           <Route path='/about' element={<About />} ></Route>
           <Route path='/compose' element={<Compose />} ></Route>
-          <Route path='/tech' element={<CategoryPosts />} ></Route>
+          <Route path='/:category' element={<CategoryPosts />} ></Route>
           <Route path="/posts/:category/:title" element={<SinglePost />} />
         </Routes>
       </Router>
