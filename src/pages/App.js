@@ -20,6 +20,7 @@ function App() {
           <Route path='/compose' element={<Compose />} ></Route>
           <Route path='/:category' element={<CategoryPosts />} ></Route>
           <Route path="/posts/:category/:title" element={<SinglePost />} />
+          <Route path="/compose" element={<Compose />} />
         </Routes>
       </Router>
     </>

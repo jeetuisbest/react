@@ -88,7 +88,7 @@ function PostItems(props) {
         padding: 12px;
         border-color: #070707;
         border-width: 1px; */}
-        <Link style={{ "textDecoration": "none" }} className="border-4 p-5 text-3xl border-black cursor-pointer hover:bg-black hover:text-white rounded-3xl" to={`/tech`}> View More</Link>
+        <Link style={{ "textDecoration": "none" }} className="border-4 p-5 text-3xl border-black cursor-pointer hover:bg-black hover:text-white rounded-3xl" to={`/${props.category}`}> View More</Link>
         {/* <li className=" cursor-pointer px-5" id="about"> <Link to={`/about`} > ABOUT US </Link></li> */}
       </ul>
 
@@ -117,7 +117,7 @@ function PostItems(props) {
         } */}
         {techPostsArr.map((postItem, index) => {
           if (index < 4) {
-            return (<Post key={postItem.key}
+            return (<Post key={postItem._id}
               id={postItem._id}
               img={postItem.img}
               title={postItem.title}

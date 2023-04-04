@@ -58,9 +58,7 @@ function post(props) {
         return date
     }
 
-    if (!id) {
-        return <h1 className="no-data"> No Data Available</h1>;
-    } else {
+    if (id) {
         return (
             <div className="mr-[22%] ml-[2%] p-10">
                 <div className="text-link" >
