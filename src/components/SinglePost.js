@@ -2,11 +2,19 @@ import React, { useState, useEffect } from "react";
 import Header from '../components/Header';
 import postsArr from './postsArr';
 import ShowSinglePost from './ShowSinglePost.js'
+// import LatestPosts from "../components/LatestPosts"
 import DarkMode from './DarkMode';
 import { getJsonData } from '../commonConfig/utils';
 import Footer from "./Footer";
 
 function SinglePost() {
+    const [firstComponentLoaded, setFirstComponentLoaded] = useState(false);
+    useEffect(() => {
+        // Simulate a 1 second delay in loading the first component
+        setTimeout(() => {
+            setFirstComponentLoaded(true);
+        }, 2000);
+    }, []);
 
     let postId = window.location.pathname.split('-').pop()
     let category = window.location.pathname.split('/')[2]
@@ -54,26 +62,12 @@ function SinglePost() {
 
 
 
-    // console.log("currentPost", currentPost)
-    // currentPost = post
-
-    // console.log("currentrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr", currentPost)
-    // postsArr.forEach((post) => {
-    //     if (post.key == postId) {
-    //         currentPost = post
-    //         // console.log("currentPost :", currentPost);
-    //     }
-
-    // })
-
-    console.log("currentPost", currentPost)
-
     return <div className='SinglePost'>
         <Header />
         {/* <DarkMode /> */}
         <ShowSinglePost
-            key={currentPost?.key}
-            id={currentPost?.key}
+            key={currentPost?._id}
+            id={currentPost?._id}
             title={currentPost?.title}
             content={currentPost?.content}
             category={currentPost?.category}
@@ -82,7 +76,9 @@ function SinglePost() {
             date={currentPost?.publish_date}
         />
 
-        <Footer />
+        {/* <LatestPosts /> */}
+
+        {firstComponentLoaded && <Footer />}
 
     </div>
 }

@@ -28,6 +28,22 @@ const postJsonData = async (url, payLoad, headers = {}) => {
         body: JSON.stringify(payLoad),
     });
     let responseData = await response.json();
+    console.log("responseData", responseData)
+    return responseData;
+};
+
+const postJsonDataWithImg = async (url, payLoad, headers = {}) => {
+    let response = await fetch(url, {
+        method: "POST",
+        headers: {
+            "processData": false,
+            "Content-Type": false,
+            ...headers,
+        },
+        body: JSON.stringify(payLoad),
+    });
+    let responseData = await response.json();
+    console.log("responseData", responseData)
     return responseData;
 };
 
@@ -108,5 +124,6 @@ export {
     getCookie,
     getCookieJSON,
     deleteCookie,
-    setCookie
+    setCookie,
+    postJsonDataWithImg
 };

@@ -61,7 +61,7 @@ function LatestPost() {
                 {postsArr.map((postItem, index) => {
 
                     if (index < 4) {
-                        return (<SwiperSlide key={postItem.key}
+                        return (<SwiperSlide key={postItem._id}
                         // id={postItem.key}
                         // title={postItem.title}
                         // content={postItem.content.slice(0, 400) + "...."}
